@@ -1,0 +1,199 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.btn-consulta {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.json-output {
+  margin-top: 20px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  min-height: 100px;
+  max-height: 500px;
+  overflow-y: auto;
+  /* white-space: pre-wrap; */
+  text-align: left;
+  position: relative;
+}
+
+.json-output h6 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#loading {
+  display: none; /* Inicialmente escondido */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+/* Quando o preloader estiver ativo, exibimos */
+#loading.active {
+  display: block;
+}
+
+/* Estilos para o spinner (animação de loading) */
+.spinner-layer {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+}
+
+.circle-clipper {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #00bcd4;
+  border-radius: 50%;
+  animation: rotate 1.2s linear infinite;
+}
+
+.gap-patch .circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent;
+  animation: rotate 1.2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para o resultado JSON */
+#json-output {
+  visibility: hidden;
+}
+
+#json-output.visible {
+  visibility: visible;
+}
+
+.json-output .header {
+  width: 100%;
+}
+
+.btn-copy {
+  position: sticky;
+  top: 10px;
+  left: 90%;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #00796b;
+  z-index: 10;
+}
+
+.btn-copy:hover {
+  color: #004d40;
+}
+
+.input-field label {
+  padding-left: 10px;
+}
+
+.input-field input:focus + label {
+  color: #00796b !important; /* Cor do label quando o campo é focado */
+}
+
+.input-field input:focus {
+  border-color: #00796b !important; /* Cor da borda quando focado */
+  box-shadow: none !important; /* Sombra quando focado */
+}
+
+.input-field input {
+  border: 1px solid #757575 !important; /* Cor da borda do campo */
+  border-radius: 4px !important; /* Borda arredondada */
+  padding-left: 10px !important; /* Ajuste do padding */
+}
+
+/* Wrapper do select */
+.select-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Estilo do select */
+.material-select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  appearance: none;
+  transition: border-color 0.3s;
+  /* Ajuste para o select não desaparecer */
+  box-sizing: border-box;
+}
+
+/* Estilo do select quando está em foco */
+.material-select:focus {
+  outline: none;
+  border-color: #6200ea; /* Cor do Material Design */
+}
+
+/* Estilo da label */
+.material-select + label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  /* Adicionando um espaçamento para evitar sobreposição com o campo */
+  padding: 0 4px;
+}
+
+/* Quando o select está preenchido ou em foco */
+.material-select:focus + label,
+.material-select:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #6200ea; /* Cor do Material Design */
+}

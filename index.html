@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Design - Consulta API</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h5>Consulta API</h5>
+      <!-- <div class="input-field">
+        <select id="base-url" class="validate filled">
+          <option selected value="https://pyapisoap.onrender.com/api">https://pyapisoap.onrender.com/api</option>
+          <option value="http:localhost:8000/api">http:localhost:8000/api</option>
+        </select>
+        <label for="base-url">Base URL da API</label>
+      </div> -->
+
+      <div class="input-field">
+        <select id="base-url" class="material-select">
+          <option value="" disabled selected>Escolha uma opção</option>
+          <option value="https://pyapisoap.onrender.com/api/v1">https://pyapisoap.onrender.com/api/v1</option>
+          <option value="http://localhost:8000/api/v1">http:localhost:8000/api/v1</option>
+        </select>
+        <label for="base-url">Base URL da API</label>
+      </div>
+
+      <button id="send-data" class="btn waves-effect waves-light">
+        Enviar Dados
+      </button>
+      <button id="send" class="btn waves-effect waves-light">
+        Fazer Consulta
+      </button>
+      <button id="status" class="btn waves-effect waves-light">
+        Status
+      </button>
+
+      <div id="json-output" class="json-output">
+        <!-- <h6>Resultado da Consulta:</h6> -->
+        <div class="header">
+          <button id="copy-content" class="btn-copy">
+            <i class="material-icons">file_copy</i>
+          </button>
+        </div>
+        <pre id="json-content">Nenhum dado disponível.</pre>
+      </div>
+    </div>
+
+    <!-- <div id="loading" class="preloader-wrapper active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
